@@ -8,5 +8,11 @@
 
 import Foundation
 
-print("Hello, World!")
+//Creation de notre premier robot
+var robot1 = Robot(name: "RT-56/X")
+
+print(robot1.name)
+
+
+
 
