@@ -24,8 +24,8 @@ var robot4 = Robot(name: "BB-8")
 //Creation d'un tableau contenant nos 4 robots
 var teamDeRobots = [robot1, robot2, robot3, robot4]
 
-for _ in teamDeRobots {
-    print(sePresenter())
+for robot in teamDeRobots {
+    print(robot.sePresenter())
     
 }
 
