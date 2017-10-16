@@ -19,6 +19,9 @@ class Robot {
         self.name = name
     }
     
+    func sePresenter() {
+        print("Bonjour, je m'appelle \(name). J'ai \(life) points de vie. Je me déplace à \(runSpeed) cases par seconde. Je suis à la case de coordonnées \(position)")
+    }
 }
 
 

@@ -11,7 +11,11 @@ import Foundation
 //Creation de notre premier robot
 var robot1 = Robot(name: "RT-56/X")
 
-print(robot1.name)
+//Creation de notre deuxième robot
+var robot2 = Robot(name: "R2-D2")
+
+robot1.sePresenter()
+robot2.sePresenter()
 
 
 
