@@ -29,6 +29,12 @@ for robot in teamDeRobots {
     
 }
 
+robot1.seDeplacer(direction: .gauche, vitesse: 10)
+robot1.sePresenter()
+
+robot2.seDeplacer(direction: .droite, vitesse: 1)
+robot2.sePresenter()
+
 
 
 
