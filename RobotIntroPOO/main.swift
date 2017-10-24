@@ -24,17 +24,17 @@ var robot4 = Robot(name: "BB-8")
 //Creation d'un tableau contenant nos 4 robots
 var teamDeRobots = [robot1, robot2, robot3, robot4]
 
-for robot in teamDeRobots {
-    print(robot.sePresenter())
+//for robot in teamDeRobots {
+//print(robot.sePresenter())
     
-}
+//}
 
-robot1.seDeplacer(direction: .gauche, vitesse: 10)
-robot1.sePresenter()
 
-robot2.seDeplacer(direction: .droite, vitesse: 1)
-robot2.sePresenter()
 
+var unrobot = RobotUnique(name: "Blabla", life: 10, position: (X: 3, Y: 2))
+
+unrobot.sePresenter()
+unrobot.seDeplacer(direction: .gauche)
 
 
 
