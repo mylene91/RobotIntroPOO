@@ -8,9 +8,12 @@
 
 import Foundation
 
+
 //Creation de la classe Robot
 class Robot {
     
+    
+    //enum des orientations que peut prendre le robot
     enum Orientation {
         case haut, bas, droite, gauche
     }
@@ -24,19 +27,20 @@ class Robot {
         self.name = name
     }
     
-    
+    //fonction pour que le robot se présente
     func sePresenter() {
         print("Bonjour, je m'appelle \(name). J'ai \(life) points de vie. Je me déplace à \(runSpeed) cases par seconde. Je suis à la case de coordonnées \(position)")
     }
-
+    
+    //fonction qui va permettre à notre robot de se déplacer
     func seDeplacer(direction: Orientation, vitesse: Int) {
-        var vitesseDeplacement: Int
+        var vitesseDeplacement: Int //si on rentre un chiffre/nombre plus élevé que la var runSpeed, celle ci sera automatiquement réajusté
         if vitesse > runSpeed {
             vitesseDeplacement = runSpeed
         } else {
             vitesseDeplacement = vitesse
         }
-        switch direction {
+        switch direction { //switch pour déplacer notre robot selon des coordonnées
         case .haut:
             position.Y += vitesseDeplacement
         case .bas:
@@ -49,8 +53,9 @@ class Robot {
         
     }
     
+    //fonction seDeplacer qui va nous permettre avec la fonction suivante d'avoir un nombre aléatoire relatif à la vitesse de déplacement
     func seDeplacer(direction: Orientation) {
-        let vitesseDeplacement: Int = seDeplacerAleatoirement()
+        let vitesseDeplacement: Int = seDeplacerAleatoirement() //fait appel à la fonction seDepacerAleatoirement
         
         switch direction {
         case .haut:
@@ -65,14 +70,16 @@ class Robot {
         
     }
     
-    
-    func seDeplacerAleatoirement() -> Int {
+    //fonction qui sort un chiffre aléatoirement
+    func seDeplacerAleatoirement() -> Int { //la fonction va retourner un entier aléatoire : ce chiffre sera la constante de vitesseDeplacement dans la fonction seDeplacer
         return Int(arc4random_uniform(UInt32(runSpeed + 1)))
         
     }
     
 }
 
+//creation d'une nouvelle classe RobotUnique avec des init qui servent à créer un robot unique lors de l'appel dans le main.swift.
+//Cette classe reprend la même classe que Robot mais n'en n'hérite pas.
 class RobotUnique {
     
     enum Orientation {
@@ -123,13 +130,16 @@ class RobotUnique {
         switch direction {
         case .haut:
             position.Y += vitesseDeplacement
+            print("Je me suis déplacé de \(vitesseDeplacement) cases vers le haut ma nouvelle coordonnée Y = \(position.Y)")
         case .bas:
             position.Y -= vitesseDeplacement
+            print("Je me suis déplacé de \(vitesseDeplacement) cases vers le bas ma nouvelle coordonnée Y = \(position.Y)")
         case .droite:
             position.X += vitesseDeplacement
+            print("Je me suis déplacé de \(vitesseDeplacement) cases vers la droite ma nouvelle coordonnée X = \(position.X)")
         case .gauche:
             position.X -= vitesseDeplacement
-            print("Je me suis déplacé de \(vitesseDeplacement) cases vers la gauche ma nouvelle coordonnée x = \(position.X).")
+            print("Je me suis déplacé de \(vitesseDeplacement) cases vers la gauche ma nouvelle coordonnée X = \(position.X).")
         }
         
     }
@@ -142,10 +152,6 @@ class RobotUnique {
     
 }
 
-
-
-       // coupsdedeplacement demandé et initialisé dans le fichiermain.swift
-        //seDeplacer(direction: Robot.Orientation, vitesse: Int)
 
  
     

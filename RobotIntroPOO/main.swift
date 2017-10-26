@@ -24,17 +24,24 @@ var robot4 = Robot(name: "BB-8")
 //Creation d'un tableau contenant nos 4 robots
 var teamDeRobots = [robot1, robot2, robot3, robot4]
 
-//for robot in teamDeRobots {
-//print(robot.sePresenter())
+
+//boucle pour que tous les robots dans le tableau se présentent à tour de rôle (ils sont statiques)
+for robot in teamDeRobots {
+print(robot.sePresenter())
     
-//}
+}
 
 
-
+//notre robot unique : initialisation de son nom, de sa vie et de sa position.
 var unrobot = RobotUnique(name: "Blabla", life: 10, position: (X: 3, Y: 2))
 
+//le robot se présente
 unrobot.sePresenter()
+
+//le robot se déplace
 unrobot.seDeplacer(direction: .gauche)
+
+
 
 
 
