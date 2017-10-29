@@ -33,7 +33,7 @@ print(robot.sePresenter())
 
 
 //notre robot unique : initialisation de son nom, de sa vie et de sa position.
-var unrobot = RobotUnique(name: "Blabla", life: 10, position: (X: 3, Y: 2))
+var unrobot = Robot(name: "Blabla", life: 10, runSpeed: 3, position: (X: 3, Y: 2))
 
 //le robot se présente
 unrobot.sePresenter()
