@@ -13,30 +13,48 @@ import Foundation
 class Robot {
     
     
-    //enum des orientations que peut prendre le robot
+    //enum des orientations que peut prendre le robot et aléatoire
     enum Orientation: UInt32 {
         case haut, bas, droite, gauche
+        
+        
+        private static let _count: Orientation.RawValue = {
+            var maxValue: UInt32 = 0
+            while let _ = Orientation(rawValue: maxValue) {
+                maxValue += 1
+            }
+            return maxValue
+        }()
+        static func randomDirection() -> Orientation {
+            let rand = arc4random_uniform(_count)
+            return Orientation(rawValue: rand)!
+        }
     }
+    
+
     
     var name: String
     var life: Int
     var runSpeed: Int
     var position: (X: Int, Y: Int)
+    var arme: Arme
     
-    convenience init(name: String) {
-        self.init(name: name, life: 100, runSpeed: 3, position: (X: 0, Y: 0))
+    
+    convenience init(name: String, arme: Arme) {
+        self.init(name: name, life: 100, runSpeed: 3, position: (X: 0, Y: 0), arme: arme)
     }
  
-    init(name: String, life: Int, runSpeed: Int, position: (X: Int, Y: Int)) {
+    init(name: String, life: Int, runSpeed: Int, position: (X: Int, Y: Int), arme: Arme) {
         self.name = name
         self.life = life
         self.runSpeed = runSpeed
         self.position = position
+        self.arme = arme
     }
     
     //fonction pour que le robot se présente
     func sePresenter() {
-        print("Bonjour, je m'appelle \(name). J'ai \(life) points de vie. Je me déplace à \(runSpeed) cases par seconde. Je suis à la case de coordonnées \(position)")
+        print("Bonjour, je m'appelle \(name). J'ai \(life) points de vie. Je me déplace à \(runSpeed) cases par seconde. Je suis à la case de coordonnées \(position). J'ai une super arme : \(arme.name) et elle fait \(arme.damage) points de dégats")
     }
     
     //fonction qui va permettre à notre robot de se déplacer
@@ -65,10 +83,10 @@ class Robot {
     }
     
     //fonction seDeplacer qui va nous permettre avec la fonction suivante d'avoir un nombre aléatoire relatif à la vitesse de déplacement
-    func seDeplacer(direction: Orientation) {
+     func seDeplacer() {
         let vitesseDeplacement: Int = genererVitesseAleatoire() //fait appel à la fonction generervitessealeatoire
         
-        switch direction {
+        switch Orientation.randomDirection() {
         case .haut:
             position.Y += vitesseDeplacement
         case .bas:
@@ -86,14 +104,31 @@ class Robot {
         return Int(arc4random_uniform(UInt32(runSpeed + 1)))
         
     }
-    
 
     
 }
 
-
- 
+//Une classe arme pour équiper les robots
+class Arme {
+    var name : String
+    var damage : Int
     
+    init (name : String, damage : Int){
+        self.name = name
+        self.damage = damage
+        
+        
+    }
+
+    
+}
+
+//classe épée déjà paramétré
+class Epee: Arme {
+    init() {
+        super.init(name: "epée1", damage: 10)
+    }
+}
     
     
     
