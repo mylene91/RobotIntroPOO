@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371CEA60205E924400FB4FCE /* Arme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371CEA5F205E924400FB4FCE /* Arme.swift */; };
 		9682592E1F94A522000BB816 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682592D1F94A522000BB816 /* main.swift */; };
 		968259351F94A590000BB816 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968259341F94A590000BB816 /* Robot.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		371CEA5F205E924400FB4FCE /* Arme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arme.swift; sourceTree = "<group>"; };
 		9682592A1F94A522000BB816 /* RobotIntroPOO */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RobotIntroPOO; sourceTree = BUILT_PRODUCTS_DIR; };
 		9682592D1F94A522000BB816 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		968259341F94A590000BB816 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				9682592D1F94A522000BB816 /* main.swift */,
 				968259341F94A590000BB816 /* Robot.swift */,
+				371CEA5F205E924400FB4FCE /* Arme.swift */,
 			);
 			path = RobotIntroPOO;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				371CEA60205E924400FB4FCE /* Arme.swift in Sources */,
 				968259351F94A590000BB816 /* Robot.swift in Sources */,
 				9682592E1F94A522000BB816 /* main.swift in Sources */,
 			);

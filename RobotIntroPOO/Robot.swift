@@ -9,11 +9,11 @@
 import Foundation
 
 
-//Creation de la classe Robot
+// Creation de la classe Robot
 class Robot {
     
     
-    //enum des orientations que peut prendre le robot et aléatoire
+    // enum des orientations que peut prendre le robot + aléatoire
     enum Orientation: UInt32 {
         case haut, bas, droite, gauche
         
@@ -31,8 +31,7 @@ class Robot {
         }
     }
     
-
-    
+    // propriétés principales de la classe Robot
     var name: String
     var life: Int
     var runSpeed: Int
@@ -52,12 +51,12 @@ class Robot {
         self.arme = arme
     }
     
-    //fonction pour que le robot se présente
+    // méthode pour que le robot se présente
     func sePresenter() {
         print("Bonjour, je m'appelle \(name). J'ai \(life) points de vie. Je me déplace à \(runSpeed) cases par seconde. Je suis à la case de coordonnées \(position). J'ai une super arme : \(arme.name) et elle fait \(arme.damage) points de dégats")
     }
     
-    //fonction qui va permettre à notre robot de se déplacer
+    // méthode qui va permettre à notre robot de se déplacer
     func seDeplacer(direction: Orientation, vitesse: Int) {
         var vitesseDeplacement: Int //si on rentre un chiffre/nombre plus élevé que la var runSpeed, celle ci sera automatiquement réajusté
         if vitesse > runSpeed {
@@ -82,7 +81,7 @@ class Robot {
         
     }
     
-    //fonction seDeplacer qui va nous permettre avec la fonction suivante d'avoir un nombre aléatoire relatif à la vitesse de déplacement
+    // méthode seDeplacer qui va nous permettre avec la fonction suivante d'avoir un nombre aléatoire relatif à la vitesse de déplacement
      func seDeplacer() {
         let vitesseDeplacement: Int = genererVitesseAleatoire() //fait appel à la fonction generervitessealeatoire
         
@@ -99,36 +98,14 @@ class Robot {
         
     }
     
-    //fonction qui sort un chiffre aléatoirement
+    // méthode qui sort un chiffre aléatoirement
     func genererVitesseAleatoire() -> Int { //la fonction va retourner un entier aléatoire : ce chiffre sera la constante de vitesseDeplacement dans la fonction seDeplacer
         return Int(arc4random_uniform(UInt32(runSpeed + 1)))
         
     }
-
-    
 }
 
-//Une classe arme pour équiper les robots
-class Arme {
-    var name : String
-    var damage : Int
-    
-    init (name : String, damage : Int){
-        self.name = name
-        self.damage = damage
-        
-        
-    }
 
-    
-}
-
-//classe épée déjà paramétré
-class Epee: Arme {
-    init() {
-        super.init(name: "epée1", damage: 10)
-    }
-}
     
     
     
